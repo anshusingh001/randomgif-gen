@@ -1,13 +1,41 @@
-body {
-  margin: 0;
-  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen',
-    'Ubuntu', 'Cantarell', 'Fira Sans', 'Droid Sans', 'Helvetica Neue',
-    sans-serif;
-  -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+.background{
+  background-color: #e5e5f7;
+  opacity: 0.8;
+  background-image:  linear-gradient(135deg, #45baf7 25%, transparent 25%), linear-gradient(225deg, #45baf7 25%, transparent 25%), linear-gradient(45deg, #45baf7 25%, transparent 25%), linear-gradient(315deg, #45baf7 25%, #e5e5f7 25%);
+  background-position:  9px 0, 9px 0, 0 0, 0 0;
+  background-size: 9px 9px;
+  background-repeat: repeat;
+}
+.spinner {
+  width: 56px;
+  height: 56px;
+  display: grid;
+  animation: spinner-plncf9 4s infinite;
 }
 
-code {
-  font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
-    monospace;
+.spinner::before,
+.spinner::after {
+  content: "";
+  grid-area: 1/1;
+  border: 9px solid;
+  border-radius: 50%;
+  border-color: #474bff #474bff #0000 #0000;
+  mix-blend-mode: darken;
+  animation: spinner-plncf9 1s infinite linear;
 }
+
+.spinner::after {
+  border-color: #0000 #0000 #dbdcef #dbdcef;
+  animation-direction: reverse;
+}
+
+@keyframes spinner-plncf9 {
+  100% {
+     transform: rotate(1turn);
+  }
+}
+  
